@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.33214.139
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QvaPay.Net", "QvaPay.Net\QvaPay.Net.csproj", "{08E2F65D-2F36-421D-AED3-FEFE498940FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QvaPay.Net.Tests", "QvaPay.Net.Tests\QvaPay.Net.Tests.csproj", "{28BBD06E-DF54-4EC3-807D-F4634F127A86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08E2F65D-2F36-421D-AED3-FEFE498940FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E2F65D-2F36-421D-AED3-FEFE498940FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E2F65D-2F36-421D-AED3-FEFE498940FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E2F65D-2F36-421D-AED3-FEFE498940FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28BBD06E-DF54-4EC3-807D-F4634F127A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BBD06E-DF54-4EC3-807D-F4634F127A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BBD06E-DF54-4EC3-807D-F4634F127A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BBD06E-DF54-4EC3-807D-F4634F127A86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B35B2A7F-5E3C-4445-84F2-5A6E2BFC1E33}
+	EndGlobalSection
+EndGlobal
