@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json.Serialization;
 
-namespace QvaPay.Net.Objects.User
+namespace QvaPay.Sdk.Objects.User
 {
     /// <summary>
     /// Me Information

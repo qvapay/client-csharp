@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace QvaPay.Net.Exceptions
+namespace QvaPay.Sdk.Exceptions
 {
     public class HttpApiException<T> : Exception
     {

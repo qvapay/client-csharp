@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace QvaPay.Net.Clients
+﻿namespace QvaPay.Sdk.Clients
 {
     public interface IEndpointData
     {
