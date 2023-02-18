@@ -8,8 +8,9 @@ This SDK is at an early stage of development. It is provided as a convenience to
 
 ## Supported APIs
 
--   **Auth**
+-   **Authentication**
     -   login
+    -   logout
 
 ## Contributing
 
