@@ -1,4 +1,5 @@
-﻿using QvaPay.Sdk.Objects.Authentication;
+﻿using System;
+using QvaPay.Sdk.Objects.Authentication;
 using RestSharp;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -7,6 +8,8 @@ namespace QvaPay.Sdk.Clients.Concrete
 {
     public class AuthHttpApiClient : HttpApiClient
     {
+        private const string LOGIN_ENDPOINT = "/auth/login";
+        private const string LOGOUT_ENDPOINT = "/auth/logout";
         public AuthHttpApiClient(IEndpointData endpointData)
             : base(endpointData) { }
 
@@ -15,6 +18,7 @@ namespace QvaPay.Sdk.Clients.Concrete
             return request;
         }
 
+        #region Login
         RestRequest LoginRequest(string email, string password)
         {
             var userForAuthentication = new UserForAuthentication
@@ -25,7 +29,7 @@ namespace QvaPay.Sdk.Clients.Concrete
 
             this.ValidateModel(userForAuthentication);
 
-            return new RestRequest(resource: $"/auth/login", method: Method.Post)
+            return new RestRequest(resource: LOGIN_ENDPOINT, method: Method.Post)
                 .AddBody(JsonSerializer.Serialize(userForAuthentication), "application/json");
         }
 
@@ -33,5 +37,22 @@ namespace QvaPay.Sdk.Clients.Concrete
         {
             return await ExecuteAsync<UserForAuthenticationResponse>(LoginRequest(email: email, password: password));
         }
+        #endregion
+
+        #region Logout
+        RestRequest LogoutRequest(string token)
+        {
+            if (string.IsNullOrWhiteSpace(token))
+                throw new ArgumentException(nameof(token));
+
+            return new RestRequest(resource: LOGOUT_ENDPOINT, method: Method.Get)
+                .AddHeader("Authorization", $"Bearer {token}");
+        }
+        
+        public async Task<UserLogoutResponse> LogoutAsync(string token)
+        {
+            return await ExecuteAsync<UserLogoutResponse>(LogoutRequest(token: token));
+        }
+        #endregion
     }
 }

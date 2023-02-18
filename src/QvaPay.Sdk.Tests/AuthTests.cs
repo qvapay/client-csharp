@@ -9,6 +9,7 @@ namespace QvaPay.Sdk.Tests
     {
         private AuthHttpApiClient Client { get; set; } = new AuthHttpApiClient(QvaPayEnvironment.OPEN_PROD);
 
+        #region Login
         [TestMethod]
         public void LoginTest()
         {
@@ -42,5 +43,27 @@ namespace QvaPay.Sdk.Tests
             //Testing with wrong credentials
             await Assert.ThrowsExceptionAsync<HttpApiException<SingleError>>(() => Client.LoginAsync("validmail@gmail.com", "InvalidPassword"));
         }
+        #endregion
+        
+        #region Logout
+        [TestMethod]
+        public void LogoutTest()
+        {
+            var logoutTest = Client.LogoutAsync("ValidToken");
+
+            logoutTest.Wait();
+            
+            var result = logoutTest.Result;
+
+            Assert.Equals(result, "You have been successfully logged out!");
+        }
+        
+        [TestMethod]
+        public async Task InvalidTokenValidation()
+        {
+            //Testing with invalid token
+            await Assert.ThrowsExceptionAsync<HttpApiException<SingleError>>(() => Client.LogoutAsync("InvalidToken"));
+        }
+        #endregion
     }
 }
