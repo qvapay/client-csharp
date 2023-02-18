@@ -18,20 +18,19 @@ namespace QvaPay.Net.Clients
             _restClient = new RestClient(options);
         }
 
-        protected async Task<RestResponse<T>> ExecuteAsync<T>(RestRequest request) where T : new()
+        protected async Task<T> ExecuteAsync<T>(RestRequest request) where T : new()
         {
             request = TransformHeaders(request);
             var response = await _restClient.ExecuteAsync<T>(request);
-
-            return response;
+            response.ProcessRestResponse();
+            return response.Data;
         }
 
-        protected async Task<RestResponse> ExecuteAsync(RestRequest request)
+        protected async Task ExecuteAsync(RestRequest request)
         {
             request = TransformHeaders(request);
             var response = await _restClient.ExecuteAsync(request);
-
-            return response;
+            response.ProcessRestResponse();
         }
 
         protected abstract RestRequest TransformHeaders(RestRequest request);
