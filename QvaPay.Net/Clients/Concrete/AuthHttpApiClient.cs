@@ -2,6 +2,7 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -26,11 +27,13 @@ namespace QvaPay.Net.Clients.Concrete
                 Password = password
             };
 
+            this.ValidateModel(userForAuthentication);
+
             return new RestRequest(resource: $"/auth/login", method: Method.Post)
                 .AddBody(JsonSerializer.Serialize(userForAuthentication), "application/json");
         }
 
-        public async Task<RestResponse<UserForAuthenticationResponse>> Login(string email, string password)
+        public async Task<UserForAuthenticationResponse> Login(string email, string password)
         {
             return await ExecuteAsync<UserForAuthenticationResponse>(LoginRequest(email: email, password: password));
         }
