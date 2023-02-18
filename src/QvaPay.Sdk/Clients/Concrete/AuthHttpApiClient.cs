@@ -1,13 +1,9 @@
-﻿using QvaPay.Net.Objects.Authentication;
+﻿using QvaPay.Sdk.Objects.Authentication;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace QvaPay.Net.Clients.Concrete
+namespace QvaPay.Sdk.Clients.Concrete
 {
     public class AuthHttpApiClient : HttpApiClient
     {
@@ -33,7 +29,7 @@ namespace QvaPay.Net.Clients.Concrete
                 .AddBody(JsonSerializer.Serialize(userForAuthentication), "application/json");
         }
 
-        public async Task<UserForAuthenticationResponse> Login(string email, string password)
+        public async Task<UserForAuthenticationResponse> LoginAsync(string email, string password)
         {
             return await ExecuteAsync<UserForAuthenticationResponse>(LoginRequest(email: email, password: password));
         }

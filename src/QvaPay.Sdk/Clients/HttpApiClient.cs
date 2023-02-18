@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace QvaPay.Net.Clients
+namespace QvaPay.Sdk.Clients
 {
     public abstract class HttpApiClient
     {

@@ -1,14 +1,11 @@
-﻿using QvaPay.Net.Clients;
-using QvaPay.Net.Exceptions;
+﻿using QvaPay.Sdk.Clients;
+using QvaPay.Sdk.Exceptions;
 using RestSharp;
-using RestSharp.Serializers;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 using System.Text.Json;
 
-namespace QvaPay.Net
+namespace QvaPay.Sdk
 {
     public static class Extensions
     {

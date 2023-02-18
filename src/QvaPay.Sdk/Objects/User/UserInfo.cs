@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json.Serialization;
 
-namespace QvaPay.Net.Objects.User
+namespace QvaPay.Sdk.Objects.User
 {
     /// <summary>
     /// Me Information
@@ -20,11 +18,17 @@ namespace QvaPay.Net.Objects.User
         public string? Lastname { get; set; }
         [JsonPropertyName("bio")]
         public string? Bio { get; set; }
-        [JsonPropertyName("logo")]
-        public string? Logo { get; set; }
+        [JsonPropertyName("profile_photo_path")]
+        public string? ProfilePhotoPath { get; set; }
         [JsonPropertyName("balance")]
         public decimal Balance { get; set; }
-        [JsonPropertyName("kyc")]
-        public bool KYC { get; set; }
+        [JsonPropertyName("complete_name")]
+        public string? FullName { get; set; }
+        [JsonPropertyName("name_verified")]
+        public string? NameVerified { get; set; }
+        [JsonPropertyName("profile_photo_url")]
+        public string? ProfilePhotoUrl { get; set; }
+        [JsonPropertyName("average_rating")]
+        public decimal AverageRating { get; set; }
     }
 }

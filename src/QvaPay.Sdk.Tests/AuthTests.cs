@@ -1,8 +1,8 @@
-using QvaPay.Net.Clients;
-using QvaPay.Net.Clients.Concrete;
-using QvaPay.Net.Exceptions;
+using QvaPay.Sdk.Clients;
+using QvaPay.Sdk.Clients.Concrete;
+using QvaPay.Sdk.Exceptions;
 
-namespace QvaPay.Net.Tests
+namespace QvaPay.Sdk.Tests
 {
     [TestClass]
     public class AuthTests
@@ -13,7 +13,7 @@ namespace QvaPay.Net.Tests
         public void LoginTest()
         {
             //Should be tested with valid credentials
-            var authTest = Client.Login("validemail@mail.com", "ValidPassword");
+            var authTest = Client.LoginAsync("validemail@mail.com", "ValidPassword");
 
             authTest.Wait();
 
@@ -26,21 +26,21 @@ namespace QvaPay.Net.Tests
         public async Task PasswordEmptyValidation()
         {
             //Will trigger error validating password 
-            await Assert.ThrowsExceptionAsync<ValidationErrorException>(() => Client.Login("validemail@mail.com", ""));
+            await Assert.ThrowsExceptionAsync<ValidationErrorException>(() => Client.LoginAsync("validemail@mail.com", ""));
         }
 
         [TestMethod]
         public async Task InvalidEmailValidation()
         {
             //Will trigger error validating email address
-            await Assert.ThrowsExceptionAsync<ValidationErrorException>(() => Client.Login("validemail.mail.com", "ValidPassword"));
+            await Assert.ThrowsExceptionAsync<ValidationErrorException>(() => Client.LoginAsync("validemail.mail.com", "ValidPassword"));
         }
 
         [TestMethod]
         public async Task LoginInvalidCredentials()
         {
             //Testing with wrong credentials
-            await Assert.ThrowsExceptionAsync<HttpApiException<SingleError>>(() => Client.Login("validmail@gmail.com", "InvalidPassword"));
+            await Assert.ThrowsExceptionAsync<HttpApiException<SingleError>>(() => Client.LoginAsync("validmail@gmail.com", "InvalidPassword"));
         }
     }
 }

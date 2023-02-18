@@ -1,10 +1,7 @@
-﻿using QvaPay.Net.Objects.User;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using QvaPay.Sdk.Objects.User;
 using System.Text.Json.Serialization;
 
-namespace QvaPay.Net.Objects.Authentication
+namespace QvaPay.Sdk.Objects.Authentication
 {
     public class UserForAuthenticationResponse
     {
